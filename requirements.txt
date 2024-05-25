@@ -3,3 +3,5 @@ uvicorn
 scikit-learn==1.4.2
 pandas
 mysql-connector-python
+openpyxl
+
