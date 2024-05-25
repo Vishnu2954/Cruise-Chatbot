@@ -1,44 +1,29 @@
-import mysql.connector
-
-db_config = {
-    'user': 'root',
-    'password': 'Vishnu_2954',
-    'host': 'localhost',
-    'database': 'cruise',
-}
+import csv
 
 def get_precaution(disease):
     try:
-        cnx = mysql.connector.connect(**db_config)
-        cursor = cnx.cursor()
-        query = "SELECT Precaution FROM precaution_remedy WHERE Disease = %s"
-        cursor.execute(query, (disease,))
-        result = cursor.fetchone()
-        cursor.close()
-        cnx.close()
+        with open('precaution_remedy.csv', 'r') as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                if row['Disease'] == disease:
+                    return row['Precaution']
+        return None 
 
-        if result:
-            return result[0]
-        else:
-            return None  # Return None if no result found
-
-    except mysql.connector.Error as err:
-        return f"Error: {err}"
+    except FileNotFoundError:
+        return "Error: CSV file not found"
+    except Exception as e:
+        return f"Error: {e}"
 
 def get_remedy(disease):
     try:
-        cnx = mysql.connector.connect(**db_config)
-        cursor = cnx.cursor()
-        query = "SELECT Remedy FROM precaution_remedy WHERE Disease = %s"
-        cursor.execute(query, (disease,))
-        result = cursor.fetchone()
-        cursor.close()
-        cnx.close()
+        with open('precaution_remedy.csv', 'r') as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                if row['Disease'] == disease:
+                    return row['Remedy']
+        return None  
 
-        if result:
-            return result[0]
-        else:
-            return None
-
-    except mysql.connector.Error as err:
-        return f"Error: {err}"
+    except FileNotFoundError:
+        return "Error: CSV file not found"
+    except Exception as e:
+        return f"Error: {e}"
