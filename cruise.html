@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <title>Cruise</title>
+</head>
+<style>
+.nav-link {
+    color: rgb(235, 235, 235);
+    font-size: larger;
+    transition: color 0.5s;
+    font-family: 'Noto Sans', 'Roboto', Calibri;
+}
+
+
+.nav-link:hover {
+    color: white;
+}
+
+ .navbar {
+    background: linear-gradient(90deg, rgb(30, 30, 50) 0%, rgb(230, 130, 0) 100%); 
+}
+.navbar-nav {
+    display: flex;
+    align-items: left; 
+}
+
+.navbar-nav.me-auto {
+    margin-right: auto; 
+}
+
+.navbar-nav.ms-auto {
+    margin-left: auto; 
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px; 
+}
+.footer {
+    background: linear-gradient(90deg, rgb(30, 30, 50) 0%, rgb(230, 130, 0) 100%); 
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    width: 100%;
+    margin-top: 30px;
+    font-family: 'Noto Sans', 'Roboto', Calibri;
+}
+
+.about {
+    font-family: 'Noto Sans', 'Roboto', Calibri;
+}
+
+.fade-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+.fade-in.loaded {
+        opacity: 1;
+}
+
+table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 1em;
+        }
+td {
+    padding: 1em;
+    }
+
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+     <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 1.75A.75.75 0 0 1 .75 1h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 1.75zM0 7.75A.75.75 0 0 1 .75 7h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 7.75zM0 13.75A.75.75 0 0 1 .75 13h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 13.75z"/>
+                </svg>
+            </span>
+        </button>        
+         <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav me-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="profile.html">Profile</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="mlq.html">Projects</a>
+                 </li>
+             </ul>
+             <ul class="navbar-nav ms-auto">
+                 <li class="nav-item">
+                     <a class="nav-link" href="mailto:vishnu290504@gmail.com" target="_blank">
+                         <i class="far fa-envelope"></i>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="https://www.linkedin.com/in/vishnu-kannabiran-5b87a824b/" target="_blank">
+                         <i class="fab fa-linkedin"></i>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="https://github.com/Vishnu2954" target="_blank">
+                         <i class="fab fa-github"></i>
+                     </a>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </nav>
+ 
+     
+<h2 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Noto Sans', 'Roboto', Calibri;">Cruise, A Chatbot</h2>
+<div class="container fade-in" style="font-family: 'Noto Sans', 'Roboto', Calibri;">
+        <div class="about" style="margin-top: 70px;">
+            <h4 style="text-align: center;">Hi there, I'm Cruise!</h4>
+        </div>
+        <br><br>
+        <p style="text-align: center; font-size: large;">
+            I will be your go-to guide for health concerns. By analyzing your symptoms, I can predict 24 different diseases, provide precautions and suggest remedies for them including:
+        </p>
+        <br><br>
+        <table>
+            <tr>
+                <td>Acne</td>
+                <td>Allergy</td>
+                <td>Arthritis</td>
+                <td>Asthma</td>
+            </tr>
+            <tr>
+                <td>Chicken pox</td>
+                <td>Cervical spondylosis</td>
+                <td>Common Cold</td>
+                <td>Diabetes</td>
+            </tr>
+            <tr>
+                <td>Dengue</td>
+                <td>Dimorphic Hemorrhoids (Piles)</td>
+                <td>Drug reaction</td>
+                <td>Fungal infection</td>
+            </tr>
+            <tr>
+                <td>Gastroesophageal reflux disease</td>
+                <td>Hypertension</td>
+                <td>Impetigo</td>
+                <td>Jaundice</td>
+            </tr>
+            <tr>
+                <td>Malaria</td>
+                <td>Migraine</td>
+                <td>Peptic ulcer disease</td>
+                <td>Pneumonia</td>
+            </tr>
+            <tr>
+                <td>Psoriasis</td>
+                <td>Typhoid</td>
+                <td>Urinary tract infection</td>
+                <td>Varicose Veins</td>
+            </tr>
+        </table><br></br>
+        <p style="text-align: center; font-size: large;">
+            Just tell me how you feel, and I'll provide you with insights to steer you in the right direction for better health. Let's sail through your health journey together!
+        </p>
+        <br></br>
+</div>
+    <div style="text-align: center;">
+        <iframe width="750" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/c24ae8ee-c8c9-4fa1-b4bc-8643b54f91aa"></iframe>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(section => {
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+</body>
+<footer class="footer">
+    <p> COPYRIGHTS&copy2024 </p>
+</footer>
+</html>
+ 
