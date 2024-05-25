@@ -1,14 +1,18 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 import pickle
 import uvicorn
 import db_helper
-
 app = FastAPI()
 
 with open('svm_rbf.pkl', 'rb') as f:
     svm, vectorizer, le = pickle.load(f)
 
+@app.get("/cruise")
+async def cruise():
+    with open("cruise.html", "r", encoding="utf-8") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
 
 @app.post("/")
 async def handle_request(request: Request):
@@ -26,7 +30,6 @@ async def handle_request(request: Request):
         return disease_remedy(parameters)
     return JSONResponse({})
 
-
 def disease_finder(query_text: str, payload: dict):
     predicted_disease = predict_disease(query_text)
     fulfillment_text = payload['queryResult']['fulfillmentText']
@@ -35,13 +38,11 @@ def disease_finder(query_text: str, payload: dict):
     payload['queryResult']['fulfillmentText'] = response_text
     return JSONResponse(content={"fulfillmentText": response_text})
 
-
 def predict_disease(symptoms: str):
     symptoms_vec = vectorizer.transform([symptoms])
     predicted_disease_encoded = svm.predict(symptoms_vec)
     predicted_disease = le.inverse_transform(predicted_disease_encoded)[0]
     return predicted_disease
-
 
 def disease_precaution(parameters: dict):
     disease_types = parameters['disease-types']
@@ -58,7 +59,6 @@ def disease_precaution(parameters: dict):
 
     return JSONResponse(content={"fulfillmentText": " ".join(precautions)})
 
-
 def disease_remedy(parameters: dict):
     disease_types = parameters['disease-types']
     if isinstance(disease_types, str):
@@ -74,6 +74,5 @@ def disease_remedy(parameters: dict):
 
     return JSONResponse(content={"fulfillmentText": " ".join(remedies)})
 
-
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
