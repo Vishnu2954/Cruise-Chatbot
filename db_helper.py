@@ -39,5 +39,5 @@ def get_causes(disease):
 
     except FileNotFoundError:
             return "Error: Excel file not found"
-        except Exception as e:
+    except Exception as e:
             return f"Error: {e}"
