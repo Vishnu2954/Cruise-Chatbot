@@ -84,7 +84,7 @@ def disease_causes(parameters: dict):
 
     causes = []
     for disease in disease_types:
-        cause = db_helper.get_remedy(disease)
+        cause = db_helper.get_causes(disease)
         if cause:
             causes.append(f"{cause}")
         else:
