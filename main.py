@@ -28,6 +28,9 @@ async def handle_request(request: Request):
     elif intent == "disease.remedy":
         parameters = payload['queryResult']['parameters']
         return disease_remedy(parameters)
+     elif intent == "disease.causes":
+        parameters = payload['queryResult']['parameters']
+        return disease_causes(parameters)
     return JSONResponse({})
 
 def disease_finder(query_text: str, payload: dict):
@@ -73,6 +76,21 @@ def disease_remedy(parameters: dict):
             remedies.append(f"No remedies found for {disease}.")
 
     return JSONResponse(content={"fulfillmentText": " ".join(remedies)})
+
+def disease_causes(parameters: dict):
+    disease_types = parameters['disease-types']
+    if isinstance(disease_types, str):
+        disease_types = [disease_types]
+
+    causes = []
+    for disease in disease_types:
+        cause = db_helper.get_remedy(disease)
+        if cause:
+            causes.append(f"{cause}")
+        else:
+            causes.append(f"No causes found for {disease}.")
+
+    return JSONResponse(content={"fulfillmentText": " ".join(causes)})
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
