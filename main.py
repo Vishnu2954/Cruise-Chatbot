@@ -28,7 +28,7 @@ async def handle_request(request: Request):
     elif intent == "disease.remedy":
         parameters = payload['queryResult']['parameters']
         return disease_remedy(parameters)
-     elif intent == "disease.causes":
+    elif intent == "disease.causes":
         parameters = payload['queryResult']['parameters']
         return disease_causes(parameters)
     return JSONResponse({})
