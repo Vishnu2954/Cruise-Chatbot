@@ -3,6 +3,8 @@ import pandas as pd
 def get_precaution(disease):
     try:
         df = pd.read_excel('precaution_remedy.xlsx')
+        df['Disease'] = df['Disease'].str.lower()  
+        disease = disease.lower()
         row = df[df['Disease'] == disease]
         if not row.empty:
             return row.iloc[0]['Precaution']
@@ -17,6 +19,8 @@ def get_precaution(disease):
 def get_remedy(disease):
     try:
         df = pd.read_excel('precaution_remedy.xlsx')
+        df['Disease'] = df['Disease'].str.lower()  
+        disease = disease.lower()
         row = df[df['Disease'] == disease]
         if not row.empty:
             return row.iloc[0]['Remedy']
@@ -31,6 +35,8 @@ def get_remedy(disease):
 def get_causes(disease):
     try:
         df = pd.read_excel('precaution_remedy.xlsx')
+        df['Disease'] = df['Disease'].str.lower()  
+        disease = disease.lower()
         row = df[df['Disease'] == disease]
         if not row.empty:
             return row.iloc[0]['Causes']
