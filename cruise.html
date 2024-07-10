@@ -1,125 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
-    <title>Cruise</title>
-    <style>
-         html, body {
-            overflow-x: hidden;
-            background: linear-gradient(90deg, rgb(255, 255, 255) 25%, rgb(255, 240, 220) 75%);
-        }
-        .nav-link {
-            color: rgb(235, 235, 235);
-            font-size: larger;
-            transition: color 0.5s;
-            font-family: 'Noto Sans', 'Roboto', Calibri;
-        }
-
-        .nav-link:hover {
-            color: white;
-        }
-
-        .navbar {
-            background: linear-gradient(90deg, rgb(30, 30, 50) 0%, rgb(230, 130, 0) 100%);
-        }
-
-        .navbar-nav {
-            display: flex;
-            align-items: left;
-        }
-
-        .navbar-nav.me-auto {
-            margin-right: auto;
-        }
-
-        .navbar-nav.ms-auto {
-            margin-left: auto;
-        }
-
-        .navbar-nav .nav-item {
-            margin-right: 10px;
-        }
-
-        .footer {
-            background: linear-gradient(90deg, rgb(30, 30, 50) 0%, rgb(230, 130, 0) 100%);
-            padding: 5px 0px 5px 0px;
-            text-align: center;
-            color: rgb(255, 255, 255);
-            font-size: 24px;
-            width: 100%;
-            margin-top: 30px;
-            font-family: 'Noto Sans', 'Roboto', Calibri;
-        }
-
-        .about {
-            font-family: 'Noto Sans', 'Roboto', Calibri;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .fade-in.loaded {
-            opacity: 1;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 1em;
-        }
-
-        td {
-            padding: 1em;
-        }
-
-        @media (max-width: 768px) {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>Cruise</title>
+        <style>
+            html, body {
+                overflow-x: hidden;
+                background: rgb(40, 45, 60);
+                color: rgb(230, 130, 0);
+                font-family: 'Poppins', sans-serif;
+            }
+    
+            .nav-link {
+                color: rgb(230, 130, 0);
+                font-size: larger;
+                transition: color 0.5s;
+                font-family: 'Poppins', sans-serif;
+            }
+    
+            .nav-link:hover {
+               color: whitesmoke;
+            }
+    
+            .navbar {
+                background: rgb(40, 45, 60);
+                box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+            }
+    
             .navbar-nav {
-                flex-direction: column;
+                display: flex;
                 align-items: left;
             }
-
+    
+            .navbar-nav.me-auto {
+                margin-right: auto;
+            }
+    
+            .navbar-nav.ms-auto {
+                margin-left: auto;
+            }
+    
             .navbar-nav .nav-item {
-                margin-right: 0;
-                margin-bottom: 10px;
+                margin-right: 10px;
             }
-
+    
             .footer {
-                font-size: 18px;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-
-            table, iframe {
+                background: rgb(40, 45, 60);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+                padding: 5px 0px 5px 0px;
+                text-align: center;
+                color: rgb(230, 130, 0);
+                font-size: 24px;
                 width: 100%;
-                height: auto;
+                margin-top: 30px;
+                font-family: 'Poppins', sans-serif;
+            }
+    
+            .about {
+                font-family: 'Poppins', sans-serif;
+            }
+    
+            .fade-in {
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+            }
+    
+            .fade-in.loaded {
+                opacity: 1;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 1em;
+            }
+    
+            td {
+                padding: 1em;
+            }
+    
+            .condition-link {
+                color: rgb(230, 130, 0);
+                text-decoration: none;
+            }
+    
+            .condition-link:hover {
+                color: whitesmoke;
+            }
+            
+            .iframe-container{
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
             }
 
-            iframe {
-                min-height: 400px;
+    
+            @media (max-width: 768px) {
+                .navbar-nav {
+                    flex-direction: column;
+                    align-items: left;
+                }
+    
+                .navbar-nav .nav-item {
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+    
+                .footer {
+                    font-size: 18px;
+                }
+    
+                .container {
+                    padding: 0 10px;
+                }
+    
+                table, iframe {
+                    width: 100%;
+                    height: auto;
+                }
+    
+                iframe {
+                    min-height: 400px;
+                }
             }
-        }
-        
-        .condition-link{
-            color: black;
-            text-decoration: none;
-        }
-
-        .condition-link:hover{
-            color: rgb(230, 130, 0);
-        }
-        
-    </style>
-</head>
+        </style>
+    </head>    
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -159,14 +170,14 @@
             </div>
         </div>
     </nav>
-    <h2 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Noto Sans', 'Roboto', Calibri;">Cruise, A Chatbot</h2>
-    <div class="container fade-in" style="font-family: 'Noto Sans', 'Roboto', Calibri;">
+    <h2 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Poppins', Calibri;">Cruise, A Chatbot</h2>
+    <div class="container fade-in" style="font-family: 'Poppins', Calibri;">
         <div class="about" style="margin-top: 70px;">
             <h4 style="text-align: center;">Hi there, I'm Cruise!</h4>
         </div>
         <br><br>
         <p style="text-align: center; font-size: large;">
-            I will be your go-to guide for health concerns. By analyzing your symptoms, I can predict 24 different diseases, provide causes, precautions and suggest remedies for them including:
+            I will be your go-to guide for health concerns. By analyzing your symptoms, I can predict 24 different diseases, provide precautions and suggest remedies for them including:
         </p>
         <br><br>
         <div class="row">
@@ -179,7 +190,7 @@
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Common+Cold" target="_blank">Common Cold</a></div><br></br>
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Diabetes" target="_blank">Diabetes</a></div><br></br>
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Dengue" target="_blank">Dengue</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Dimorphic+Hemorrhoids+(Piles)" target="_blank">Dimorphic Hemorrhoids</a></div><br></br>
+            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Dimorphic+Hemorrhoids+(Piles)" target="_blank">Dimorphic Hemorrhoids (Piles)</a></div><br></br>
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Drug+reaction" target="_blank">Drug reaction</a></div><br></br>
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Fungal+infection" target="_blank">Fungal infection</a></div><br></br>
             <div class="col-6 col-md-3"><a class="condition-link"href="https://www.google.com/search?q=Gastroesophageal+reflux+disease" target="_blank">Gastroesophageal reflux disease</a></div><br></br>
@@ -195,18 +206,21 @@
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Urinary+tract+infection" target="_blank">Urinary tract infection</a></div><br></br>
             <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Varicose+Veins" target="_blank">Varicose Veins</a></div><br></br>
         </div>
+        
         <br></br>
         <p style="text-align: center; font-size: large;">
             Just tell me how you feel, and I'll provide you with insights to steer you in the right direction for better health. Let's sail through your health journey together!
         </p>
         <br></br>
+    <div class="iframe-container"></div>
     <div style="text-align: center;">
-            <iframe  width="750" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/c24ae8ee-c8c9-4fa1-b4bc-8643b54f91aa"></iframe>
+            <iframe  width="750" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/c24ae8ee-c8c9-4fa1-b4bc-8643b54f91aa"></iframe><br></br>
         </div>
-    <h4 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Noto Sans', 'Roboto', Calibri;">Description</h4><br></br>
-        <p>     The Chatbot is pre-trained using Natural Language Processing techniques and Support Vector Machine Learning model for disease prediction with an accuracy of 97% and then integrated with Dialogflow. </p>
-        <p>     Performance of the model:</p>  
-        <img src="https://vishnu2954.github.io/Cruise-Chatbot/images/Screenshot%202024-05-27%20143036.png" height="400px" width="800px">
+    </div>
+        <h4 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Poppins', Calibri;">Description</h4><br></br>
+        <p style="padding-left: 25px;"> The Chatbot is pre-trained using Natural Language Processing techniques and Support Vector Machine Learning model for disease prediction with an accuracy of 97% and then integrated with Dialogflow. </p>
+        <p style="padding-left: 25px;"> Performance of the model:</p> 
+        <img src="https://vishnu2954.github.io/Cruise-Chatbot/images/Screenshot%202024-05-27%20143036.png" style="height: 400px; width: 800px; padding-left: 25px;">
     </div>
 </div>
     <script>
