@@ -93,8 +93,15 @@
             .condition-link:hover {
                font-weight: bold;
             }
+           
+            #typingText {  
+            display: inline;  
+            border-right: 2px solid;  
+            padding-right: 5px;  
+            white-space: nowrap;  
+            overflow: hidden;  
+            }  
             
-    
             @media (max-width: 768px) {
                 .navbar-nav {
                     flex-direction: column;
@@ -167,7 +174,7 @@
     <h2 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Poppins', Calibri;">Cruise, A Chatbot</h2>
     <div class="container fade-in" style="font-family: 'Poppins', Calibri;">
         <div class="about" style="margin-top: 70px;">
-            <h4 style="text-align: center;">Hi there, I'm Cruise!</h4>
+            <h4 style="text-align: center;"><span id="typingText"></span></h4>
         </div>
         <br><br>
         <p style="text-align: center; font-size: large;">
@@ -239,6 +246,20 @@
                     });
                 });
             });
+        
+        const text = "Hi there!, I'm Cruise!";
+        let index = 0;  
+
+        function type() {  
+            if (index < text.length) {  
+                document.getElementById("typingText").innerHTML += text.charAt(index);  
+                index++;  
+                setTimeout(type, 50); 
+            } else {  
+                document.getElementById("typingText").style.borderRight = 'none';  
+            }  
+        }   
+        type(); 
         });
     </script>
     <footer class="footer">
