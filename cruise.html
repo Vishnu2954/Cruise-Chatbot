@@ -12,258 +12,269 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <title>Cruise</title>
        <style>
-             html, body {
-                overflow-x: hidden;
-                background: linear-gradient(90deg, rgb(210, 225, 255) 0%, rgb(255, 229, 214) 100%);
-                color: rgb(0, 15, 60);
-                font-family: 'Poppins', sans-serif;
-            }
-    
-            .nav-link {
-                color: rgb(255, 175, 0,1.25);
-                font-size: larger;
-                transition: color 0.5s;
-                font-family: 'Poppins', sans-serif;
-            }
-    
-            .nav-link:hover {
-                color: rgb(255, 175, 0,0.75);
-            }
-    
-            .navbar {
-                background: rgb(0, 12, 48);
-            }
+             :root {
+            --primary-color: #1D4350;
+            --secondary-color:  #A43931;
+            --text-color: #142e36;
+            --bg-color: #e9f9ff;
+            --accent-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-            .navbar-nav {
-                display: flex;
-                align-items: left;
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {  
+            font-size: large;
+            margin-left: 1rem; 
+        } 
+
+        .navbar-brand, .nav-link {
+            color: var(--accent-color) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        .hero-features-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .hero {
+            background: linear-gradient(60deg, var(--primary-color), var(--secondary-color));
+            color: var(--bg-color);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .conditions {
+            background-color: var(--bg-color);
+            padding: 4rem 0;
+        }
+
+        .condition-link {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .condition-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .chatbot-container {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .description {
+            padding: 4rem 0;
+            background-color: var(--bg-color);
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: large;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
             }
-    
-            .navbar-nav.me-auto {
-                margin-right: auto;
+            .hero p {
+                font-size: 1rem;
             }
-    
-            .navbar-nav.ms-auto {
-                margin-left: auto;
-            }
-    
-            .navbar-nav .nav-item {
-                margin-right: 10px;
-            }
-    
-            .footer {
-                background: rgb(0, 12, 48);
-                padding: 5px 0px 5px 0px;
-                text-align: center;
-                color: rgb(255, 175, 0);
-                font-size: 24px;
-                width: 100%;
-                margin-top: 30px;
-                font-family: 'Poppins', sans-serif;
-            }
-    
-            .about {
-                font-family: 'Poppins', sans-serif;
-            }
-    
-            .fade-in {
-                opacity: 0;
-                transition: opacity 0.5s ease-in-out;
-            }
-    
-            .fade-in.loaded {
-                opacity: 1;
-            }
-    
-            table {
-                width: 100%;
-                border-collapse: separate;
-                border-spacing: 1em;
-            }
-    
-            td {
-                padding: 1em;
-            }
-    
-            .condition-link {
-                color: rgb(0, 12, 48);
-                text-decoration: none;
-            }
-    
-            .condition-link:hover {
-               font-weight: bold;
-            }
-           
-            #typingText {  
-            display: inline;  
-            border-right: 2px solid;  
-            padding-right: 5px;  
-            white-space: nowrap;  
-            overflow: hidden;  
-            }  
-            
-            @media (max-width: 768px) {
-                .navbar-nav {
-                    flex-direction: column;
-                    align-items: left;
-                }
-    
-                .navbar-nav .nav-item {
-                    margin-right: 0;
-                    margin-bottom: 10px;
-                }
-    
-                .footer {
-                    font-size: 18px;
-                }
-    
-                .container {
-                    padding: 0 10px;
-                }
-    
-                table, iframe {
-                    width: 100%;
-                    height: auto;
-                }
-    
-                iframe {
-                    min-height: 400px;
-                }
-            }    
+        }  
         </style>
     </head>    
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M0 1.75A.75.75 0 0 1 .75 1h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 1.75zM0 7.75A.75.75 0 0 1 .75 7h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 7.75zM0 13.75A.75.75 0 0 1 .75 13h14.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 13.75z"/>
-                    </svg>
-                </span>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cruise AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="https://portfolio-o2yh.onrender.com/profile">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://portfolio-o2yh.onrender.com/projects">Projects</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="mailto:vishnu290504@gmail.com" target="_blank">
-                            <i class="far fa-envelope"></i>
-                        </a>
+                        <a class="nav-link" href="mailto:vishnu290504@gmail.com"><i class="far fa-envelope"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/vishnu-kannabiran-5b87a824b/" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                        <a class="nav-link" href="https://www.linkedin.com/in/vishnu-kannabiran-5b87a824b/"><i class="fab fa-linkedin"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Vishnu2954" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
+                        <a class="nav-link" href="https://github.com/Vishnu2954"><i class="fab fa-github"></i></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h2 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Poppins', Calibri;">Cruise, A Chatbot</h2>
-    <div class="container fade-in" style="font-family: 'Poppins', Calibri;">
-        <div class="about" style="margin-top: 70px;">
-            <h4 style="text-align: center;"><span id="typingText"></span></h4>
+    <div class="hero-features-container">
+    <section class="hero">
+        <div class="container">
+             <h1></h1> <br></br>
+            <p>Your intelligent health companion, powered by AI to help you cruise through your health concerns.</p>
         </div>
-        <br><br>
-        <p style="text-align: center; font-size: large;">
-            I will be your go-to guide for health concerns. By analyzing your symptoms, I can predict 24 different diseases, provide precautions and suggest remedies for them including:
-        </p>
-        <br><br>
-        <div class="row">
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Acne" target="_blank">Acne</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Allergy" target="_blank">Allergy</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Arthritis" target="_blank">Arthritis</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Asthma" target="_blank">Asthma</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Chicken+pox" target="_blank">Chicken pox</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Cervical+spondylosis" target="_blank">Cervical spondylosis</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Common+Cold" target="_blank">Common Cold</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Diabetes" target="_blank">Diabetes</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Dengue" target="_blank">Dengue</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Dimorphic+Hemorrhoids+(Piles)" target="_blank">Dimorphic Hemorrhoids (Piles)</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Drug+reaction" target="_blank">Drug reaction</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Fungal+infection" target="_blank">Fungal infection</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link"href="https://www.google.com/search?q=Gastroesophageal+reflux+disease" target="_blank">Gastroesophageal reflux disease</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Hypertension" target="_blank">Hypertension</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Impetigo" target="_blank">Impetigo</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Jaundice" target="_blank">Jaundice</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Malaria" target="_blank">Malaria</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Migraine" target="_blank">Migraine</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Peptic+ulcer+disease" target="_blank">Peptic ulcer disease</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Pneumonia" target="_blank">Pneumonia</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Psoriasis" target="_blank">Psoriasis</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Typhoid" target="_blank">Typhoid</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Urinary+tract+infection" target="_blank">Urinary tract infection</a></div><br></br>
-            <div class="col-6 col-md-3"><a class="condition-link" href="https://www.google.com/search?q=Varicose+Veins" target="_blank">Varicose Veins</a></div><br></br>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-heartbeat feature-icon"></i>
+                    <h3>Symptom Analysis</h3>
+                    <p>Analyze your symptoms and get insights on potential health issues.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-stethoscope feature-icon"></i>
+                    <h3>Disease Prediction</h3>
+                    <p>Predict 24 different diseases with 97% accuracy using SVM and NLP techniques.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-user-md feature-icon"></i>
+                    <h3>Health Guidance</h3>
+                    <p>Get causes, precautions and remedies tailored to your health condition.</p>
+                </div>
+            </div>
         </div>
-        
-        <br></br>
-        <p style="text-align: center; font-size: large;">
-            Just tell me how you feel, and I'll provide you with insights to steer you in the right direction for better health. Let's sail through your health journey together!
-        </p>
-        <br></br>
-    <div style="text-align: center;">
-            <iframe  width="750" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/c24ae8ee-c8c9-4fa1-b4bc-8643b54f91aa"></iframe><br></br>
-        </div>
-        <h3 class="fade-in" style="text-align: center; margin-top: 20px; font-family: 'Poppins', Calibri;">Description</h3><br></br>
-        <p style="padding-left: 25px; font-size: large; "> The Chatbot is pre-trained using Natural Language Processing techniques and Support Vector Machine Learning model for disease prediction with an accuracy of 97% and then integrated with Dialogflow. </p>
-        <p style="padding-left: 25px; font-size: large;"> Performance of the model:</p> 
-        <img src="https://vishnu2954.github.io/Cruise-Chatbot/images/Screenshot%202024-05-27%20143036.png" style="height: 400px; width: 800px; padding-left: 25px;">
+    </section>
     </div>
-</div>
-</div>
+
+    <section class="conditions">
+        <div class="container">
+            <h2 class="text-center mb-4">Conditions We Can Help With</h2>
+            <div class="text-center">
+                <a href="https://www.google.com/search?q=Acne" class="condition-link" target="_blank">Acne</a>  
+                <a href="https://www.google.com/search?q=Allergy" class="condition-link" target="_blank">Allergy</a>  
+                <a href="https://www.google.com/search?q=Arthritis" class="condition-link" target="_blank">Arthritis</a>  
+                <a href="https://www.google.com/search?q=Asthma" class="condition-link" target="_blank">Asthma</a>  
+                <a href="https://www.google.com/search?q=Chicken+pox" class="condition-link" target="_blank">Chicken pox</a>  
+                <a href="https://www.google.com/search?q=Cervical+spondylosis" class="condition-link" target="_blank">Cervical spondylosis</a>  
+                <a href="https://www.google.com/search?q=Common+Cold" class="condition-link" target="_blank">Common Cold</a>  
+                <a href="https://www.google.com/search?q=Diabetes" class="condition-link" target="_blank">Diabetes</a>  
+                <a href="https://www.google.com/search?q=Dengue" class="condition-link" target="_blank">Dengue</a>  
+                <a href="https://www.google.com/search?q=Dimorphic+Hemorrhoids" class="condition-link" target="_blank">Dimorphic Hemorrhoids</a>  
+                <a href="https://www.google.com/search?q=Drug+reaction" class="condition-link" target="_blank">Drug reaction</a>  
+                <a href="https://www.google.com/search?q=Fungal+infection" class="condition-link" target="_blank">Fungal infection</a>  
+                <a href="https://www.google.com/search?q=GERD" class="condition-link" target="_blank">GERD</a>  
+                <a href="https://www.google.com/search?q=Hypertension" class="condition-link" target="_blank">Hypertension</a>  
+                <a href="https://www.google.com/search?q=Impetigo" class="condition-link" target="_blank">Impetigo</a>  
+                <a href="https://www.google.com/search?q=Jaundice" class="condition-link" target="_blank">Jaundice</a>  
+                <a href="https://www.google.com/search?q=Malaria" class="condition-link" target="_blank">Malaria</a>  
+                <a href="https://www.google.com/search?q=Migraine" class="condition-link" target="_blank">Migraine</a>  
+                <a href="https://www.google.com/search?q=Peptic+ulcer" class="condition-link" target="_blank">Peptic ulcer</a>  
+                <a href="https://www.google.com/search?q=Pneumonia" class="condition-link" target="_blank">Pneumonia</a>  
+                <a href="https://www.google.com/search?q=Psoriasis" class="condition-link" target="_blank">Psoriasis</a>  
+                <a href="https://www.google.com/search?q=Typhoid" class="condition-link" target="_blank">Typhoid</a>  
+                <a href="https://www.google.com/search?q=Urinary+Tract+Infection" class="condition-link" target="_blank">Urinary Tract Infection</a>  
+                <a href="https://www.google.com/search?q=Varicose+Veins" class="condition-link" target="_blank">Varicose Veins</a>
+        </div>
+        </div>
+    </section><br>
+
+    <section class="chatbot">
+        <div class="container">
+            <h2 class="text-center mb-4">Chat with Cruise</h2>
+            <div class="chatbot-container">
+                <iframe width="100%" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/c24ae8ee-c8c9-4fa1-b4bc-8643b54f91aa"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="description">
+        <div class="container">
+            <h2 class="text-center mb-4">About Cruise</h2>
+            <p>Cruise is a state-of-the-art chatbot powered by Natural Language Processing techniques and a Support Vector Machine Learning model. With an impressive 97% accuracy in disease prediction, Cruise is designed to be your reliable health companion.</p>
+            <h3 class="mt-4">Performance of the Model</h3>
+            <img src="https://vishnu2954.github.io/Cruise-Chatbot/images/Screenshot%202024-05-27%20143036.png" alt="Model Performance" class="img-fluid mt-3">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Cruise AI. All rights reserved.</p>
+        </div>
+    </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('loaded');
-                    }
-                });
-            });
+            document.addEventListener('DOMContentLoaded', function () {
+            const hero = document.querySelector('.hero h1');
+            let text = "Hi there! I'm Cruise!";
+            let index = 0;
 
-            document.querySelectorAll('.fade-in').forEach(section => {
-                observer.observe(section);
-            });
-
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        
-        const text = "Hi there!, I'm Cruise!";
-        let index = 0;  
-
-        function type() {  
-            if (index < text.length) {  
-                document.getElementById("typingText").innerHTML += text.charAt(index);  
-                index++;  
-                setTimeout(type, 50); 
-            } else {  
-                document.getElementById("typingText").style.borderRight = 'none';  
-            }  
-        }   
-        type(); 
+            function typeWriter() {
+                if (index < text.length) {
+                    hero.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            typeWriter();
         });
     </script>
-    <footer class="footer">
-        <p>COPYRIGHTS&copy2024</p>
-    </footer>
 </body>
 </html>
